@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relato de experiência · Enfermagem Comunitária II</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@500;700&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f6f5;--card:#fff;--ink:#14283a;--mute:#566673;--line:#d3dfe1;--teal:#17796a;--teal2:#dcf0ec;--amb:#9a6410;--amb2:#fbf0d8;--red:#b3402f;--red2:#fbe4df;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a21;--card:#15262f;--ink:#e6eef0;--mute:#9fb2ba;--line:#27414c;--teal:#4cc2ae;--teal2:#15393a;--amb:#e8b45c;--amb2:#3a2d14;--red:#f0907d;--red2:#3d1f1a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1a21;--card:#15262f;--ink:#e6eef0;--mute:#9fb2ba;--line:#27414c;--teal:#4cc2ae;--teal2:#15393a;--amb:#e8b45c;--amb2:#3a2d14;--red:#f0907d;--red2:#3d1f1a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Public Sans",system-ui,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 56px}
+h1,h2,h3{font-family:Literata,Georgia,serif;line-height:1.2;margin:0}
+header{padding:38px 0 8px}
+h1{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:700;max-width:22ch}
+.sub{color:var(--mute);max-width:62ch;margin:12px 0 0}
+.track{display:flex;align-items:center;gap:0;margin:26px 0 6px;overflow-x:auto;padding:6px 2px}
+.node{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--mute);font:600 13px "Public Sans",sans-serif;cursor:pointer}
+.node.done{background:var(--teal);border-color:var(--teal);color:#fff}
+.link{flex:1 0 14px;height:2px;background:var(--line)}
+.link.done{background:var(--teal)}
+.meta{font-size:.85rem;color:var(--mute)}
+nav{display:flex;gap:6px;overflow-x:auto;margin:22px 0 18px;border-bottom:1px solid var(--line)}
+nav button{flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px;font:600 .95rem "Public Sans",sans-serif;color:var(--mute);cursor:pointer}
+nav button[aria-selected="true"]{color:var(--teal);border-color:var(--teal)}
+button:focus-visible,.eixo:focus-visible,label:focus-within{outline:3px solid var(--teal);outline-offset:2px}
+section{display:none}section.on{display:block}
+h2{font-size:1.4rem;margin-bottom:6px}
+p{margin:.5em 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin-top:14px}
+.eixo{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:left;font:inherit;color:inherit;cursor:pointer;position:relative}
+.eixo b{display:block;font-family:Literata,serif;font-size:1.02rem}
+.eixo span{color:var(--mute);font-size:.9rem}
+.eixo.p{border:2px solid var(--teal);background:var(--teal2)}
+.eixo.s{border:2px dashed var(--teal)}
+.badge{position:absolute;top:10px;right:10px;font-size:.75rem;font-weight:600;color:var(--teal)}
+.row{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:10px;cursor:pointer}
+.row input{margin-top:5px;width:18px;height:18px;accent-color:var(--teal);flex:0 0 auto}
+.row.done{background:var(--teal2)}
+.row.done b{text-decoration:line-through;text-decoration-color:var(--teal)}
+.row small{display:block;color:var(--mute)}
+.bar{height:8px;border-radius:8px;background:var(--line);overflow:hidden;margin:10px 0}
+.bar i{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+.two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.box{border-radius:10px;padding:14px 16px}
+.ok{background:var(--teal2)}.no{background:var(--red2)}.warn{background:var(--amb2);border-left:4px solid var(--amb)}
+.box h3{font-size:1.05rem;margin-bottom:6px}
+.box ul{margin:0;padding-left:1.1em}.box li{margin:.25em 0}
+.steps{display:grid;gap:12px;margin-top:12px}
+.step{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:10px;padding:14px 16px}
+.step.l{border-left-color:var(--amb)}.step.x{border-left-color:var(--red)}
+.step h3{font-size:1.05rem}
+.tag{font:600 .75rem "Public Sans",sans-serif;color:var(--mute)}
+.struct{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+.struct li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px 10px 46px;margin:8px 0;position:relative}
+.struct li::before{content:counter(s);position:absolute;left:12px;top:9px;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;text-align:center;font:600 .85rem/24px sans-serif}
+footer{margin-top:34px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Relato de experiência em Enfermagem Comunitária II</h1>
+<p class="sub">Vivência de um estudante de Enfermagem da UEPA na Atenção Primária (UBS). Proposta aberta, em 9 dias, para orientação do professor da prática e da Profª Érika. Esta página não contém dados de pacientes.</p>
+<div class="track" id="track" aria-label="Progresso dos 9 dias"></div>
+<div class="meta" id="trackMeta"></div>
+</header>
+
+<nav role="tablist" id="tabs"></nav>
+
+<section id="visao">
+<h2>O projeto em uma página</h2>
+<p><b>Ponto de partida:</b> a primeira visita de campo mostrou como a realidade da Atenção Primária é complexa e imprevisível. Por isso o escopo é aberto: observo o território, a UBS e o cuidado de enfermagem, e escolho o eixo principal até o Dia 4, com orientação.</p>
+<div class="two" style="margin-top:12px">
+<div class="box ok"><h3>Objetivo geral</h3><p>Descrever e refletir sobre a experiência de um acadêmico de Enfermagem no estágio na UBS, relacionando a prática à teoria da disciplina.</p></div>
+<div class="box ok"><h3>Produtos finais</h3><ul><li>Relato de experiência completo</li><li>Ação de educação em saúde (se aprovada)</li><li>Portfólio em HTML, sem dados de pacientes</li><li>Resumo para evento ou revista</li></ul></div>
+</div>
+<div class="box warn" style="margin-top:14px"><h3>Natureza do trabalho</h3><p>Relato de experiência descritivo e reflexivo, ligado a uma atividade de ensino. Sem entrevistas, questionários ou uso de prontuários como fonte. Enquadramento com a Resolução CNS 510/2016 a confirmar com os professores.</p></div>
+</section>
+
+<section id="eixos">
+<h2>Eixos de observação</h2>
+<p>Toque em um eixo para marcá-lo: 1º toque = principal, 2º = secundário (até 2), 3º = remover. Meta: fechar até o Dia 4.</p>
+<div class="grid" id="eixoGrid"></div>
+<p class="meta" id="eixoMeta"></p>
+</section>
+
+<section id="crono">
+<h2>Cronograma de 9 dias</h2>
+<p>Marque cada dia concluído. O Dia 1 é a apresentação aos professores.</p>
+<div class="bar"><i id="barDias"></i></div>
+<div id="dias"></div>
+</section>
+
+<section id="etica">
+<h2>Ética e publicação online</h2>
+<p>É possível publicar, mas em etapas e só depois de validação. O link de uma página fica privado até você escolher compartilhar.</p>
+<div class="two" style="margin-top:12px">
+<div class="box ok"><h3>Pode entrar no relato</h3><ul><li>Sua experiência, reflexões e aprendizados</li><li>Descrição geral do serviço e das atividades</li><li>Situações gerais, sem identificar ninguém</li><li>Diálogo com a literatura e a PNAB</li></ul></div>
+<div class="box no"><h3>Não pode entrar</h3><ul><li>Nome, iniciais, endereço, foto, voz</li><li>Combinações que identificam (idade + doença + bairro)</li><li>Trechos de prontuário ou evolução</li><li>Coleta de dados sem aprovação do CEP</li></ul></div>
+</div>
+<h3 style="margin-top:22px">Antes de publicar</h3>
+<div class="bar"><i id="barEt"></i></div>
+<div id="etCheck"></div>
+<h3 style="margin-top:22px">Caminho de publicação</h3>
+<div class="steps">
+<div class="step"><span class="tag">AGORA</span><h3>Portfólio de método e cronograma</h3><p>Esta página, sem nenhum dado de paciente, para orientação.</p></div>
+<div class="step l"><span class="tag">APÓS APROVAÇÃO DOS PROFESSORES</span><h3>Relato final em evento ou revista</h3><p>Resumo expandido ou artigo em revista de enfermagem. Confirme a exigência de ética de cada veículo.</p></div>
+<div class="step x"><span class="tag">NÃO RECOMENDADO</span><h3>Relato completo em site público sem revisão</h3><p>Evite antes da validação do orientador e do enquadramento ético.</p></div>
+</div>
+</section>
+
+<section id="relato">
+<h2>Estrutura do relato</h2>
+<ol class="struct">
+<li><b>Introdução</b><br><small>Contexto, relevância e objetivo.</small></li>
+<li><b>Método</b><br><small>Tipo de estudo, cenário, período e forma de registro.</small></li>
+<li><b>Relato da experiência</b><br><small>Vivências organizadas pelo eixo escolhido.</small></li>
+<li><b>Discussão</b><br><small>Diálogo com a literatura e as políticas de saúde.</small></li>
+<li><b>Considerações finais</b><br><small>Aprendizados, limitações e contribuições.</small></li>
+<li><b>Referências</b><br><small>PNAB (Portaria GM/MS 2.436/2017), Lei 8.080/1990, Lei 7.498/1986, Código de Ética COFEN 564/2017, Res. CNS 510/2016, mais a bibliografia da disciplina.</small></li>
+</ol>
+<div class="box warn"><h3>Modelo do diário de campo (pessoal, sem identificar ninguém)</h3><ul><li>Atividade do dia e o que observei ou fiz</li><li>O que me chamou atenção ou incomodou</li><li>Qual conteúdo da teoria se liga a isso</li><li>Dúvida para levar ao professor</li></ul></div>
+</section>
+
+<section id="perg">
+<h2>Perguntas para orientação</h2>
+<p>Marque as que já foram respondidas.</p>
+<div class="two">
+<div><h3>Professor da prática</h3><div id="pP"></div></div>
+<div><h3>Profª Érika (teoria)</h3><div id="pE"></div></div>
+</div>
+<h3 style="margin-top:18px">Aos dois</h3><div id="pA"></div>
+</section>
+
+<footer>Rascunho para orientação. Sujeito à validação dos professores, da UBS e do enquadramento ético da instituição. Não contém dados de pacientes.</footer>
+</div>
+<script>
+const S=(k,d)=>{try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}};
+const W=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const $=id=>document.getElementById(id);
+const TABS=[["visao","Visão geral"],["eixos","Eixos"],["crono","9 dias"],["etica","Ética e publicação"],["relato","Estrutura"],["perg","Perguntas"]];
+const DIAS=[["Apresentar e alinhar","Apresento a proposta, fecho escopo, formato e enquadramento ético; começo o diário."],["Diário e base teórica","Levanto PNAB e documentos ligados aos eixos."],["Diário e fichamento","Ficho as leituras e ligo com a prática."],["Escolher o eixo","1 eixo principal e até 2 secundários; monto o esqueleto do relato."],["Introdução e método","Escrevo as duas seções; planejo a ação educativa."],["Ação educativa e relato","Realizo a ação (se aprovada) e escrevo o relato da experiência."],["Discussão","Relaciono a experiência com a literatura."],["Fechamento","Considerações finais, resumo, referências e revisão."],["Entrega","Ajustes com a devolutiva e entrega aos professores."]];
+const EIXOS=[["Território e acesso","ACS, distâncias, barreiras, mapa vivo da área"],["Fluxo da UBS","Acolhimento, agendamento, demanda espontânea"],["Programas e ciclos de vida","Pré-natal, puericultura, vacina, hipertensão e diabetes, pessoa idosa"],["Visita domiciliar","Preparo, conduta, vínculo, cuidadores"],["Cuidado de enfermagem","Curativos, vacinas, sinais vitais, consulta de enfermagem"],["Vulnerabilidade social","Moradia, renda, solidão, abandono"],["Saúde mental na APS","Sofrimento psíquico e rede de CAPS"],["Vigilância e promoção","Notificação, arboviroses, grupos e campanhas"],["Equipe e rede","eMulti, CRAS, CAPS, referência e contrarreferência"],["O estudante em formação","Comunicação, limites e dilemas éticos"]];
+const ETICA=["Nenhum nome, inicial, endereço, foto ou detalhe que identifique alguém","Enquadramento (Res. CNS 510/2016) confirmado por escrito pelo professor","Orientador revisou o texto antes de qualquer divulgação","UBS e instituição autorizaram o uso da experiência","Autoria e coautoria combinadas com os professores","Exigência de ética do evento ou da revista conferida","Sigilo profissional respeitado (Código de Ética COFEN)","Nenhuma coleta de dados sem aprovação prévia do CEP"];
+const PP=["O que o campo permite observar e fazer?","Posso propor uma ação educativa e como ela é autorizada?","Que cuidados para registrar sem identificar pessoas?"];
+const PE=["Esse formato atende ao que a disciplina espera?","A senhora orientaria a parte teórica e a escrita?","Pode contar como extensão ou projeto de ensino (Lattes e horas complementares)?","Qual evento ou revista recomenda?"];
+const PA=["O enquadramento ético está adequado ao entendimento da UEPA?"];
+function checks(el,items,key,bar){const st=S(key,[]);el.innerHTML="";items.forEach((t,i)=>{const l=document.createElement("label");l.className="row"+(st[i]?" done":"");l.innerHTML='<input type="checkbox"'+(st[i]?" checked":"")+'><span><b></b></span>';l.querySelector("b").textContent=t;l.querySelector("input").onchange=e=>{st[i]=e.target.checked;W(key,st);l.classList.toggle("done",st[i]);if(bar)prog(bar,st,items.length)};el.appendChild(l)});if(bar)prog(bar,st,items.length)}
+function prog(bar,st,n){$(bar).style.width=(st.filter(Boolean).length/n*100)+"%"}
+// abas
+const nav=$("tabs");
+function show(id){TABS.forEach(([t])=>{$(t).classList.toggle("on",t===id)});nav.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",b.dataset.t===id));if(location.hash!=="#"+id){try{history.replaceState(null,"","#"+id)}catch(e){}}}
+TABS.forEach(([id,n])=>{const b=document.createElement("button");b.textContent=n;b.dataset.t=id;b.setAttribute("role","tab");b.onclick=()=>show(id);nav.appendChild(b)});
+// eixos
+let ex=S("eixos",{p:null,s:[]});
+function drawEixos(){const g=$("eixoGrid");g.innerHTML="";EIXOS.forEach(([n,d],i)=>{const b=document.createElement("button");const isP=ex.p===i,isS=ex.s.includes(i);b.className="eixo"+(isP?" p":isS?" s":"");b.innerHTML="<b></b><span></span>"+(isP?'<em class="badge" style="font-style:normal">Principal</em>':isS?'<em class="badge" style="font-style:normal">Secundário</em>':"");b.querySelector("b").textContent=n;b.querySelector("span").textContent=d;b.onclick=()=>{if(isP){ex.p=null}else if(isS){ex.s=ex.s.filter(x=>x!==i)}else if(ex.p===null){ex.p=i}else if(ex.s.length<2){ex.s.push(i)}W("eixos",ex);drawEixos()};g.appendChild(b)});$("eixoMeta").textContent=ex.p===null?"Nenhum eixo principal escolhido ainda.":"Principal: "+EIXOS[ex.p][0]+(ex.s.length?" · Secundários: "+ex.s.map(i=>EIXOS[i][0]).join(", "):"")}
+// dias
+let dn=S("dias",[]);
+function drawDias(){const d=$("dias"),t=$("track");d.innerHTML="";t.innerHTML="";DIAS.forEach(([n,x],i)=>{const l=document.createElement("label");l.className="row"+(dn[i]?" done":"");l.innerHTML='<input type="checkbox"'+(dn[i]?" checked":"")+'><span><b></b><small></small></span>';l.querySelector("b").textContent="Dia "+(i+1)+": "+n;l.querySelector("small").textContent=x;l.querySelector("input").onchange=e=>{dn[i]=e.target.checked;W("dias",dn);drawDias()};d.appendChild(l);if(i){const k=document.createElement("div");k.className="link"+(dn[i-1]&&dn[i]?" done":"");t.appendChild(k)}const b=document.createElement("button");b.className="node"+(dn[i]?" done":"");b.textContent=i+1;b.title="Dia "+(i+1)+": "+n;b.onclick=()=>{dn[i]=!dn[i];W("dias",dn);drawDias()};t.appendChild(b)});const c=dn.filter(Boolean).length;$("barDias").style.width=(c/9*100)+"%";$("trackMeta").textContent=c+" de 9 dias concluídos"}
+checks($("etCheck"),ETICA,"etica","barEt");checks($("pP"),PP,"pp");checks($("pE"),PE,"pe");checks($("pA"),PA,"pa");
+drawEixos();drawDias();
+const h=location.hash.slice(1);show(TABS.some(t=>t[0]===h)?h:"visao");
+</script>
+</body>
+</html>
